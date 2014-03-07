@@ -20,11 +20,11 @@ Given /^all text messages have been read$/ do
 end
 
 Then /^"([^"]*)" should receive a text message$/ do |phone_number|
-  messages_for(phone_number).should_not be_empty
+  expect(messages_for(phone_number)).to_not be_empty
 end
 
 Then /^"([^"]*)" should receive no text messages$/ do |phone_number|
-  messages_for(phone_number).should be_empty
+  expect(messages_for(phone_number)).to be_empty
 end
 
 When /^"([^"]*?)" opens? the text message$/ do |mobile_number|
@@ -32,9 +32,9 @@ When /^"([^"]*?)" opens? the text message$/ do |mobile_number|
 end
 
 Then /^I should see "([^"]*)" in the text message body$/ do |content|
-  current_text_message.should have_body(content)
+  expect(current_text_message).to have_body(content)
 end
 
 Then /^I should see the following in the text message body:$/ do |content|
-  current_text_message.should have_body(content)
+  expect(current_text_message).to have_body(content)
 end

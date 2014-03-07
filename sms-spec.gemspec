@@ -18,13 +18,8 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency 'rspec'
-
-  s.add_development_dependency "rspec"
+  s.add_dependency 'rspec', "~> 2.11"
   s.add_development_dependency "rake"
   s.add_development_dependency "twilio-ruby"
-  s.add_development_dependency "guard-rspec"
   s.add_development_dependency "pry"
-  s.add_development_dependency "rb-fsevent"
-  s.add_development_dependency "growl"
 end

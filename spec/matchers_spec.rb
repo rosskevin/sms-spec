@@ -24,7 +24,7 @@ describe SmsSpec::Matchers do
       "expected #{@matcher.inspect} to match when provided #{@object_to_test_match.inspect}, but it did not"
     end
 
-    def negative_failure_message
+    def failure_message_when_negated
       "expected #{@matcher.inspect} not to match when provided #{@object_to_test_match.inspect}, but it did"
     end
   end
@@ -43,7 +43,7 @@ describe SmsSpec::Matchers do
     describe "when the mobile device has no text messages" do
       it "should not match" do
         device = SmsSpec::MobileDevice.new(:number => mobile_number)
-        have_text_messages.should_not match(device)
+        expect(have_text_messages).to_not match(device)
       end
     end
 
@@ -52,7 +52,7 @@ describe SmsSpec::Matchers do
         add_message SmsSpec::Message.new(:number => mobile_number, :body => "something")
 
         device = SmsSpec::MobileDevice.new(mobile_number)
-        have_text_messages.should match(device)
+        expect(have_text_messages).to match(device)
       end
     end
   end
@@ -62,7 +62,7 @@ describe SmsSpec::Matchers do
       it "matches" do
         message = SmsSpec::Message.new(:number => mobile_number, :body => "something")
 
-        have_body("something").should match(message)
+        expect(have_body("something")).to match(message)
       end
     end
   end

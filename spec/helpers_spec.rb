@@ -10,15 +10,15 @@ describe SmsSpec::Helpers do
   describe ".messages" do
     describe "before any messages have been sent" do
       it "is empty" do
-        messages.should be_empty
+        expect(messages).to be_empty
       end
     end
 
     describe "after a message has been sent" do
       it "adds a message" do
-        lambda {
+        expect(lambda {
           add_message SmsSpec::Message.new :number => "5555555512", :body => "Hello there"
-        }.should change(messages, :count).by(1)
+        }).to change(messages, :count).by(1)
       end
     end
   end
@@ -26,25 +26,27 @@ describe SmsSpec::Helpers do
   describe ".set_current_number" do
     it "assigns the current number" do
       set_current_number "555551234"
-      current_number.should == "555551234"
+      expect(current_number).to eql("555551234")
     end
 
     it "sanitizes phone nubmers" do
       set_current_number "+1555551234"
-      current_number.should == "555551234"
+      expect(current_number).to eql( "555551234")
 
       set_current_number "1-616-555-2929"
-      current_number.should == "6165552929"
+      expect(current_number).to eql("6165552929")
     end
   end
 
-  describe ".clear_sms_messages" do
+  describe ".clear_messages" do
     it "removes all messages" do
       add_message SmsSpec::Message.new :number => "5555555512", :body => "Hello there"
       add_message SmsSpec::Message.new :number => "5555555512", :body => "Hello there"
       add_message SmsSpec::Message.new :number => "5555555512", :body => "Hello there"
 
-      messages.should have(3).messages
+      expect(messages.count).to eql(3)
+      clear_messages
+      expect(messages.count).to eql(0)
     end
   end
 
@@ -55,7 +57,7 @@ describe SmsSpec::Helpers do
     end
 
       it "returns nil" do
-        current_text_message.should be_nil
+        expect(current_text_message).to be_nil
       end
     end
 
@@ -70,7 +72,7 @@ describe SmsSpec::Helpers do
 
       describe "and no messages have been opened" do
         it "should be nil" do
-          current_text_message.should be_nil
+          expect(current_text_message).to be_nil
         end
       end
 
@@ -80,13 +82,13 @@ describe SmsSpec::Helpers do
         end
 
         it "returns the last open text message" do
-          current_text_message.should == message1
+          expect(current_text_message).to eql(message1)
 
           open_last_text_message_for("5555555513")
-          current_text_message.should be_nil
+          expect(current_text_message).to be_nil
 
           open_last_text_message_for("5555555512")
-          current_text_message.should == message2
+          expect(current_text_message).to eql(message2)
         end
       end
     end
@@ -99,11 +101,11 @@ describe SmsSpec::Helpers do
       }
 
       it "modifies the From attribute" do
-        message["From"].should eql("+16165559982")
+        expect(message["From"]).to eql("+16165559982")
       end
 
       it "Modifies the Body attribute" do
-        message["Body"].should eql("Ahoy!")
+        expect(message["Body"]).to eql("Ahoy!")
       end
     end
 
@@ -113,10 +115,10 @@ describe SmsSpec::Helpers do
       }
 
       it "overrides the specified attributes" do
-        message["ToZip"].should eql("49506")
-        message["ToCity"].should eql("Detroit")
-        message["Body"].should eql("Ahoy!")
-        message["From"].should eql("+16165559982")
+        expect(message["ToZip"]).to eql("49506")
+        expect(message["ToCity"]).to eql("Detroit")
+        expect(message["Body"]).to eql("Ahoy!")
+        expect(message["From"]).to eql("+16165559982")
       end
     end
   end
