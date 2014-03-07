@@ -12,6 +12,4 @@ module SmsSpec
   def self.driver=(driver_sym)
     require "sms_spec/drivers/#{driver_sym.to_s}"
   end
-
-  SmsSpec.driver = :"twilio-ruby"
 end

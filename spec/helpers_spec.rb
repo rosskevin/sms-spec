@@ -130,11 +130,11 @@ describe SmsSpec::Helpers do
       }
 
       it "modifies the From attribute" do
-        message["From"].should eql("+16165559982")
+        expect(message["From"]).to eql("+16165559982")
       end
 
       it "Modifies the Body attribute" do
-        message["Text"].should eql("Ahoy!")
+        expect(message["Text"]).to eql("Ahoy!")
       end
     end
 
@@ -144,8 +144,8 @@ describe SmsSpec::Helpers do
       }
 
       it "overrides the specified attributes" do
-        message["Text"].should eql("Ahoy!")
-        message["From"].should eql("+16165559982")
+        expect(message["Text"]).to eql("Ahoy!")
+        expect(message["From"]).to eql("+16165559982")
       end
     end
   end
