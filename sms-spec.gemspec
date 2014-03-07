@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = SmsSpec::VERSION
   s.authors     = ["Chris Rittersdorf"]
   s.email       = ["manlycode@gmail.com"]
-  s.homepage    = "https://github.com/mhs/sms-spec"
+  s.homepage    = "https://github.com/manlycode/sms-spec"
   s.summary     = %q{Test SMS interactions with RSpec and Cucumber}
   s.description = %q{SMS Spec gives you an RSpec DSL and Cucumber steps to test SMS interactions.}
 
