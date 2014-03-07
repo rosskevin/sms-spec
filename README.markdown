@@ -16,36 +16,25 @@ end
 </pre>
 
 ## RSpec
-In your spec\_helper.rb file add the following:
-<pre>
-require 'sms_spec'
-</pre>
+In your spec\_helper.rb file configure a driver and include helper and matcher methods.
 
-If you want to have the helpers available in all of your example groups,
-you can add the following to your spec_helper.rb:
 <pre>
+require 'sms\_spec'
+
 Spec::Runner.configure do |config|
   config.include(SmsSpec::Helpers)
   config.include(SmsSpec::Matchers)
 end
-</pre>
 
-Otherwise you will have to incliude the helpers and matchers in any
-example where you use them:
-
-<pre>
-describe "MyController" do
-  include SmsSpec::Helpers
-  include SmsSpec::Matchers
-end
+SmsSpec.driver = :twilio-ruby #this can be any available sms-spec driver
 </pre>
 
 ## Cucumber
 Add the folloing to you env.rb file:
 
 <pre>
-require 'sms_spec'
-require 'sms_spec/cucumber'
+require 'sms\_spec'
+require 'sms\_spec/cucumber'
 </pre>
 
 This loads the sms\_spec RSpec helpers into your cucumber wold. Then,
