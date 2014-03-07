@@ -3,7 +3,7 @@
 An RSpec DSL and Cucumber steps to test SMS interactions with your
 Ruby on Rails application.
 
-Currently this gem only supports testing SMS messageing using the
+Currently this gem only supports testing SMS messaging using the
 [twilio-ruby](https://github.com/twilio/twilio-ruby) and
 [lookout-clickatell](https://github.com/lookout/clickatell) gem.
 
@@ -16,10 +16,10 @@ end
 </pre>
 
 ## RSpec
-In your spec\_helper.rb file configure a driver and include helper and matcher methods.
+In your spec_helper.rb file configure a driver and include helper and matcher methods.
 
 <pre>
-require 'sms\_spec'
+require 'sms_spec'
 
 Spec::Runner.configure do |config|
   config.include(SmsSpec::Helpers)
@@ -33,12 +33,12 @@ SmsSpec.driver = :twilio-ruby #this can be any available sms-spec driver
 Add the folloing to you env.rb file:
 
 <pre>
-require 'sms\_spec'
-require 'sms\_spec/cucumber'
+require 'sms_spec'
+require 'sms_spec/cucumber'
 </pre>
 
-This loads the sms\_spec RSpec helpers into your cucumber wold. Then,
-run the following to generate the text\_messsage\_steps.rb file:
+This loads the sms_spec RSpec helpers into your cucumber wold. Then,
+run the following to generate the text_messsage_steps.rb file:
 
 <pre>
 rails generate sms_spec:steps
