@@ -1,5 +1,5 @@
-class Twilio
-  class REST
+module Twilio
+  module REST
     class Client
 
       def initialize(account_sid, auth_token)
