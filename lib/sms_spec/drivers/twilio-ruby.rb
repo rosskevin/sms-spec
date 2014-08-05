@@ -17,15 +17,13 @@ module Twilio
         end
       end
 
-      class Sms
-        def messages
-          return Messages.new
-        end
-      end
-
       class Account
         def sms
-          return Sms.new
+          Sms.new
+        end
+
+        def messages
+          Messages.new
         end
       end
 
