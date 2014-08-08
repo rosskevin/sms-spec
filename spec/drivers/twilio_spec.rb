@@ -17,7 +17,7 @@ describe SmsSpec do
       auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
 
       @client = Twilio::REST::Client.new account_sid, auth_token
-      @client.account.sms.messages.create(
+      @client.account.messages.create(
         :from => '+14159341234',
         :to => '+16105557069',
         :body => 'Hey there!'
@@ -32,7 +32,7 @@ describe SmsSpec do
       auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
 
       @client = Twilio::REST::Client.new account_sid, auth_token
-      @client.account.sms.messages.create(
+      @client.account.messages.create(
         :from => '+14159341234',
         :to => '+16105557069',
         :body => 'Hey there!'
@@ -49,7 +49,7 @@ describe SmsSpec do
       auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
 
       @client = Twilio::REST::Client.new account_sid, auth_token
-      @client.account.sms.messages.create(
+      @client.account.messages.create(
         :from => '+14159341234',
         :to => '+16105557069',
         :body => 'Hey there!'
