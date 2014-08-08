@@ -67,4 +67,22 @@ describe SmsSpec::Matchers do
     end
   end
 
+  describe ".have_body_like" do
+    describe "when bodies partially match" do
+      it "matches" do
+        message = SmsSpec::Message.new(:number => mobile_number, :body => "something is here")
+
+        expect(have_body_like("something")).to match(message)
+      end
+    end
+
+    describe "when bodies don't partiall match" do
+      it "does not match" do
+        message = SmsSpec::Message.new(:number => mobile_number, :body => "something is here")
+
+        expect(have_body_like("godzilla")).to_not match(message)
+      end
+    end
+  end
+
 end
