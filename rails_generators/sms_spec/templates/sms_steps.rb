@@ -39,3 +39,11 @@ Then /^I should see the following in the text message body:$/ do |content|
   current_text_message.should have_body(content)
 end
 
+Then /^I should see "([^"]*)" somewhere in the text message body$/ do |content|
+  current_text_message.should have_body_like(content)
+end
+
+Then /^I should see the following somewhere in the text message body:$/ do |content|
+  current_text_message.should have_body_like(content)
+end
+

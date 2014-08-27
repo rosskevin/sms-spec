@@ -31,5 +31,11 @@ module SmsSpec
       end
     end
 
+    RSpec::Matchers.define :have_body_like do |expected_body|
+      match do |message|
+        message.body.match(expected_body)
+      end
+    end
+
   end
 end
