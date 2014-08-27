@@ -1,5 +1,8 @@
 # SMS Spec
 
+[![Build Status](https://travis-ci.org/manlycode/sms-spec.svg)](https://travis-ci.org/manlycode/sms-spec)
+[![Code Climate](https://codeclimate.com/github/manlycode/sms-spec/badges/gpa.svg)](https://codeclimate.com/github/manlycode/sms-spec)
+
 An RSpec DSL and Cucumber steps to test SMS interactions with your
 Ruby on Rails application.
 
