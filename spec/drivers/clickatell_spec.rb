@@ -4,7 +4,6 @@ describe SmsSpec do
   include SmsSpec::Helpers
 
   before do
-    require 'clickatell'
     SmsSpec.driver = :"clickatell"
     @to_number   = '27999900001' # TEST NUMBER
     @from_number = '27999900005' # TEST NUMBER
