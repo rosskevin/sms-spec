@@ -56,7 +56,7 @@ describe 'twilio-ruby' do
     end
 
     it 'records the from number for a message' do
-      @client.account.messages.create(
+      @client.messages.create(
           :from => '+14159341234',
           :to => '+16105557069',
           :body => 'Hey there!'
