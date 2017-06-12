@@ -15,7 +15,7 @@ Add the sms-spec gem to `Gemfile`:
 
 ```ruby
 group :test do
-  gem 'sms-spec'
+  gem "sms-spec"
 end
 ```
 
@@ -23,30 +23,30 @@ end
 Configure a driver and include helper and matcher methods in the `spec_helper.rb`:
 
 ```ruby
-require 'sms_spec'
+require "sms_spec"
 
 Spec::Runner.configure do |config|
   config.include(SmsSpec::Helpers)
   config.include(SmsSpec::Matchers)
 end
 
-SmsSpec.driver = :'twilio-ruby' #this can be any available sms-spec driver
+SmsSpec.driver = :"twilio-ruby" #this can be any available sms-spec driver
 ```
 
 ### Usage
 
 ```ruby
-describe 'alarm notifications' do
+describe "alarm notifications" do
   subject(:job) { AlarmNotificationJob.new }
 
-  context 'via sms' do
+  context "via sms" do
     let!(:subscription) { FactoryGirl.create :alarm_subscription_sms }
 
     it "delivers an alarm notification" do
       job.perform
 
       open_last_text_message_for(subscription.recipient)
-      expect(current_text_message.body).to eq('Yo')
+      expect(current_text_message.body).to eq("Yo")
     end
   end
 end
@@ -56,8 +56,8 @@ end
 Add the following to `env.rb`:
 
 ```ruby
-require 'sms_spec'
-require 'sms_spec/cucumber'
+require "sms_spec"
+require "sms_spec/cucumber"
 ```
 
 This loads the `sms_spec` RSpec helpers into your cucumber wold. Then,
