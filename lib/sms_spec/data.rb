@@ -1,9 +1,5 @@
-require 'sms_spec/util'
-
 module SmsSpec
   class Data
-    extend SmsSpec::Util
-
     def self.add_message message
       @@messages ||= []
       @@messages << message
@@ -19,7 +15,7 @@ module SmsSpec
     end
 
     def self.set_current_number(number)
-      @@current_number = sanitize number
+      @@current_number = number
     end
 
     def self.current_number
@@ -36,8 +32,7 @@ module SmsSpec
     end
 
     def self.messages_for(phone_number)
-      messages.select {|m| m.number == sanitize(phone_number)}
+      messages.select { |m| m.number == phone_number }
     end
-
   end
 end

@@ -29,12 +29,12 @@ describe SmsSpec::Helpers do
       expect(current_number).to eql("555551234")
     end
 
-    it "sanitizes phone nubmers" do
-      set_current_number "+1555551234"
-      expect(current_number).to eql( "555551234")
+    it 'does not format  phone numbers' do
+      set_current_number '+1555551234'
+      expect(current_number).to eql( '+1555551234')
 
-      set_current_number "1-616-555-2929"
-      expect(current_number).to eql("6165552929")
+      set_current_number '+1 (616) 555-2929'
+      expect(current_number).to eql('+1 (616) 555-2929')
     end
   end
 
@@ -68,7 +68,7 @@ describe SmsSpec::Helpers do
       before do
         add_message message1
         add_message message2
-      end 
+      end
 
       describe "and no messages have been opened" do
         it "should be nil" do

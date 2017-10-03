@@ -1,4 +1,8 @@
-require 'twilio-ruby/util/configuration'
+begin
+  require 'twilio-ruby'
+rescue LoadError
+  puts 'WARNING: Twilio is not loaded properly. Ensure to add "twilio-ruby" to your Gemfile before using this driver'
+end
 
 module Twilio
   extend SingleForwardable
