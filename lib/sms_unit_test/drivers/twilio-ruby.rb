@@ -39,13 +39,13 @@ module Twilio
       end
 
       class Messages
-        include SmsSpec::Helpers
+        include SmsUnitTest::Helpers
 
         def create(opts={})
           to = opts[:to]
           body = opts[:body]
           from = opts[:from]
-          add_message SmsSpec::Message.new(:number => to, :from => from, :body => body)
+          add_message SmsUnitTest::Message.new(:number => to, :from => from, :body => body)
         end
       end
 

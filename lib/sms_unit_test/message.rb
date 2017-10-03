@@ -1,4 +1,4 @@
-module SmsSpec
+module SmsUnitTest
   class Message
     attr_accessor :number
     attr_accessor :body

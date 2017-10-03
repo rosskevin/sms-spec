@@ -1,1 +1,0 @@
-require 'sms_spec'

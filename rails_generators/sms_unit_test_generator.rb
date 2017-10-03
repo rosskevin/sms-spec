@@ -1,6 +1,4 @@
-base = defined?(Rails) ? Rails::Generator::Base : RubiGen::Base
-
-class SmsSpecGenerator < base
+class SmsUnitTestGenerator < Rails::Generator::Base
   def manifest
     m.directory 'features/step_definitions'
     m.file 'sms_steps.rb', 'features/step_definitions/sms_steps.rb'
@@ -9,6 +7,6 @@ class SmsSpecGenerator < base
   protected
 
   def banner
-    "Usage: #{0} sms_spec"
+    "Usage: #{0} sms_unit_test"
   end
 end

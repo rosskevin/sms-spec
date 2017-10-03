@@ -1,21 +1,22 @@
-# SMS Spec
+# sms-unit-test
 
-[![Build Status](https://travis-ci.org/rosskevin/sms-spec.svg)](https://travis-ci.org/rosskevin/sms-spec)
-[![Code Climate](https://codeclimate.com/github/rosskevin/sms-spec/badges/gpa.svg)](https://codeclimate.com/github/rosskevin/sms-spec)
+[![Build Status](https://travis-ci.org/rosskevin/sms-unit-test.svg)](https://travis-ci.org/rosskevin/sms-unit-test)
+[![Code Climate](https://codeclimate.com/github/rosskevin/sms-unit-test/badges/gpa.svg)](https://codeclimate.com/github/rosskevin/sms-unit-test)
 
-An RSpec DSL and Cucumber steps to test SMS interactions with your
-Ruby on Rails application.
+This is a hard **_maintained_** fork of the sporadically maintained `sms-spec`.  Unlike that gem, I hope to provide it a home with maintenance releases as necessary, and PRs are welcome.
+
+An RSpec DSL and Cucumber steps to test SMS interactions with your Ruby on Rails application.
 
 Currently this gem only supports testing SMS messaging using the
 [twilio-ruby](https://github.com/twilio/twilio-ruby) and
 [lookout-clickatell](https://github.com/lookout/clickatell) gem.
 
-##Setup
-Add the sms-spec gem to `Gemfile`:
+## Setup
+Add the sms-unit-test gem to `Gemfile`:
 
 ```ruby
 group :test do
-  gem "sms-spec"
+  gem "sms-unit-test"
 end
 ```
 
@@ -23,14 +24,14 @@ end
 Configure a driver and include helper and matcher methods in the `spec_helper.rb`:
 
 ```ruby
-require "sms_spec"
+require "sms_unit_test"
 
 Spec::Runner.configure do |config|
-  config.include(SmsSpec::Helpers)
-  config.include(SmsSpec::Matchers)
+  config.include(SmsUnitTest::Helpers)
+  config.include(SmsUnitTest::Matchers)
 end
 
-SmsSpec.driver = :"twilio-ruby" #this can be any available sms-spec driver
+SmsUnitTest.driver = :"twilio-ruby" #this can be any available sms-unit-test driver
 ```
 
 ### Usage
@@ -56,15 +57,15 @@ end
 Add the following to `env.rb`:
 
 ```ruby
-require "sms_spec"
-require "sms_spec/cucumber"
+require "sms_unit_test"
+require "sms_unit_test/cucumber"
 ```
 
-This loads the `sms_spec` RSpec helpers into your cucumber wold. Then,
+This loads the `sms_unit_test` RSpec helpers into your cucumber wold. Then,
 run the following to generate the `text_messsage_steps.rb` file:
 
 ```ruby
-rails generate sms_spec:steps
+rails generate sms_unit_test:steps
 ```
 
 ### Usage

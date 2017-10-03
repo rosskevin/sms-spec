@@ -1,10 +1,10 @@
 require 'forwardable'
 
-module SmsSpec
+module SmsUnitTest
   module Helpers
     extend Forwardable
     
-    def_delegators :"SmsSpec::Data", 
+    def_delegators :"SmsUnitTest::Data",
       :messages,
       :add_message,
       :set_current_number,
