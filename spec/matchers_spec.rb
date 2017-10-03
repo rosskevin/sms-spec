@@ -1,8 +1,8 @@
 require File.join(File.dirname(__FILE__), *%w[spec_helper])
 
-describe SmsSpec::Matchers do
-  include SmsSpec::Helpers
-  include SmsSpec::Matchers
+describe SmsUnitTest::Matchers do
+  include SmsUnitTest::Helpers
+  include SmsUnitTest::Matchers
 
   let(:mobile_number) { "5555555512" }
 
@@ -38,20 +38,20 @@ describe SmsSpec::Matchers do
   end
 
   describe ".have_text_messages" do
-    include SmsSpec::Matchers
+    include SmsUnitTest::Matchers
 
     describe "when the mobile device has no text messages" do
       it "should not match" do
-        device = SmsSpec::MobileDevice.new(:number => mobile_number)
+        device = SmsUnitTest::MobileDevice.new(:number => mobile_number)
         expect(have_text_messages).to_not match(device)
       end
     end
 
     describe "when the mobile device has text messages" do
       it "should match" do
-        add_message SmsSpec::Message.new(:number => mobile_number, :body => "something")
+        add_message SmsUnitTest::Message.new(:number => mobile_number, :body => "something")
 
-        device = SmsSpec::MobileDevice.new(mobile_number)
+        device = SmsUnitTest::MobileDevice.new(mobile_number)
         expect(have_text_messages).to match(device)
       end
     end
@@ -60,7 +60,7 @@ describe SmsSpec::Matchers do
   describe ".have_body" do
     describe "when bodies match" do
       it "matches" do
-        message = SmsSpec::Message.new(:number => mobile_number, :body => "something")
+        message = SmsUnitTest::Message.new(:number => mobile_number, :body => "something")
 
         expect(have_body("something")).to match(message)
       end
@@ -70,7 +70,7 @@ describe SmsSpec::Matchers do
   describe ".have_body_like" do
     describe "when bodies partially match" do
       it "matches" do
-        message = SmsSpec::Message.new(:number => mobile_number, :body => "something is here")
+        message = SmsUnitTest::Message.new(:number => mobile_number, :body => "something is here")
 
         expect(have_body_like("something")).to match(message)
       end
@@ -78,7 +78,7 @@ describe SmsSpec::Matchers do
 
     describe "when bodies don't partiall match" do
       it "does not match" do
-        message = SmsSpec::Message.new(:number => mobile_number, :body => "something is here")
+        message = SmsUnitTest::Message.new(:number => mobile_number, :body => "something is here")
 
         expect(have_body_like("godzilla")).to_not match(message)
       end

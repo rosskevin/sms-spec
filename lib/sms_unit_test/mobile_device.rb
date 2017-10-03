@@ -1,4 +1,4 @@
-module SmsSpec
+module SmsUnitTest
   class MobileDevice
 
     def initialize(number)
@@ -6,7 +6,7 @@ module SmsSpec
     end
 
     def messages
-      SmsSpec::Data.messages.select {|d| d.number == @number}
+      SmsUnitTest::Data.messages.select {|d| d.number == @number}
     end
   end
 end

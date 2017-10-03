@@ -1,4 +1,4 @@
-module SmsSpec
+module SmsUnitTest
   class Data
     def self.add_message message
       @@messages ||= []

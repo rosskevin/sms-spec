@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe 'twilio-ruby' do
-  include SmsSpec::Helpers
-  SmsSpec.driver = :'twilio-ruby'
+  include SmsUnitTest::Helpers
+  SmsUnitTest.driver = :'twilio-ruby'
 
   before :each do
-    SmsSpec::Data.clear_messages
+    SmsUnitTest::Data.clear_messages
   end
 
   context 'instantiation options' do

@@ -1,6 +1,6 @@
 module Clickatell
   class API
-    include SmsSpec::Helpers
+    include SmsUnitTest::Helpers
 
     def self.authenticate(api_key, login, password)
       new(api_key, login, password)
@@ -14,7 +14,7 @@ module Clickatell
 
     def send_message(dest, body, opts={})
       from = opts[:from]
-      add_message SmsSpec::Message.new(:number => dest, :from => from, :body => body)
+      add_message SmsUnitTest::Message.new(:number => dest, :from => from, :body => body)
     end
   end
 end

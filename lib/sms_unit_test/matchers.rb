@@ -1,4 +1,4 @@
-module SmsSpec
+module SmsUnitTest
   module Matchers
 
     RSpec::Matchers.define :have_text_messages do

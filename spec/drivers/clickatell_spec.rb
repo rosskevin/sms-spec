@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe SmsSpec do
-  include SmsSpec::Helpers
+describe SmsUnitTest do
+  include SmsUnitTest::Helpers
 
   before do
-    SmsSpec.driver = :"clickatell"
+    SmsUnitTest.driver = :"clickatell"
     @to_number   = '27999900001' # TEST NUMBER
     @from_number = '27999900005' # TEST NUMBER
     @api = Clickatell::API.authenticate(
@@ -13,7 +13,7 @@ describe SmsSpec do
       ENV["CLICKATELL_PASSWORD"]
     )
 
-    SmsSpec::Data.clear_messages
+    SmsUnitTest::Data.clear_messages
   end
 
   describe "the clickatell driver" do

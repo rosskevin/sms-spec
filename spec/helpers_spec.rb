@@ -1,10 +1,10 @@
 require File.join(File.dirname(__FILE__), *%w[spec_helper])
 
-describe SmsSpec::Helpers do
-  include SmsSpec::Helpers
+describe SmsUnitTest::Helpers do
+  include SmsUnitTest::Helpers
 
   before :each do
-    SmsSpec::Data.clear_messages
+    SmsUnitTest::Data.clear_messages
   end
 
   describe ".messages" do
@@ -17,7 +17,7 @@ describe SmsSpec::Helpers do
     describe "after a message has been sent" do
       it "adds a message" do
         expect(lambda {
-          add_message SmsSpec::Message.new :number => "5555555512", :body => "Hello there"
+          add_message SmsUnitTest::Message.new :number => "5555555512", :body => "Hello there"
         }).to change(messages, :count).by(1)
       end
     end
@@ -40,9 +40,9 @@ describe SmsSpec::Helpers do
 
   describe ".clear_messages" do
     it "removes all messages" do
-      add_message SmsSpec::Message.new :number => "5555555512", :body => "Hello there"
-      add_message SmsSpec::Message.new :number => "5555555512", :body => "Hello there"
-      add_message SmsSpec::Message.new :number => "5555555512", :body => "Hello there"
+      add_message SmsUnitTest::Message.new :number => "5555555512", :body => "Hello there"
+      add_message SmsUnitTest::Message.new :number => "5555555512", :body => "Hello there"
+      add_message SmsUnitTest::Message.new :number => "5555555512", :body => "Hello there"
 
       expect(messages.count).to eql(3)
       clear_messages
@@ -53,7 +53,7 @@ describe SmsSpec::Helpers do
   describe ".current_text_message" do
     describe "when there are not text messages yet" do
     before :each do
-      SmsSpec::Data.clear_messages
+      SmsUnitTest::Data.clear_messages
     end
 
       it "returns nil" do
@@ -62,8 +62,8 @@ describe SmsSpec::Helpers do
     end
 
     describe "when there are messages" do
-      let(:message1) { SmsSpec::Message.new :number => "5555555513", :body => "Hi" }
-      let(:message2) { SmsSpec::Message.new :number => "5555555512", :body => "Hello there" }
+      let(:message1) { SmsUnitTest::Message.new :number => "5555555513", :body => "Hi" }
+      let(:message2) { SmsUnitTest::Message.new :number => "5555555512", :body => "Hello there" }
 
       before do
         add_message message1

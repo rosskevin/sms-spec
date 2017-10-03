@@ -1,6 +1,6 @@
 require 'rails/generators'
 
-module SmsSpec
+module SmsUnitTest
   class StepsGenerator < Rails::Generators::Base
     def generate
       copy_file 'sms_steps.rb', 'features/step_definitions/sms_steps.rb'
