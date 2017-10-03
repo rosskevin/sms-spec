@@ -3,7 +3,9 @@
 [![Build Status](https://travis-ci.org/rosskevin/sms-unit-test.svg)](https://travis-ci.org/rosskevin/sms-unit-test)
 [![Code Climate](https://codeclimate.com/github/rosskevin/sms-unit-test/badges/gpa.svg)](https://codeclimate.com/github/rosskevin/sms-unit-test)
 
-This is a hard **_maintained_** fork of the sporadically maintained `sms-spec`.  Unlike that gem, I hope to provide it a home with maintenance releases as necessary, and PRs are welcome.
+This is a hard **_maintained_** fork of the sporadically maintained `sms-spec`.  Unlike that gem, I hope to provide it a home with maintenance releases as necessary.
+
+**PRs are welcome**, as are additional maintainers.
 
 An RSpec DSL and Cucumber steps to test SMS interactions with your Ruby on Rails application.
 
